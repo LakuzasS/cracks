@@ -9,7 +9,7 @@ require_once './Markdown.php';
 
 $dbConfig = json_decode(trim(file_get_contents('./db.json')), true);
 
-$db = new PDO($dbConfig['dsn'], null, null, [
+$db = new PDO($dbConfig['dsn'], 'root', '', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 ]);
 

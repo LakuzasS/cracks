@@ -12,33 +12,33 @@
         <header>
             <menu>
                 <li>
-                    <a href="/">
+                    <a href="./">
                         Accueil
                     </a>
                 </li>
                 <li>
-                    <a href="/?inc=search">
+                    <a href="./?inc=search">
                         Cracks
                     </a>
                 </li>
                 <li>
-                    <a href="/?inc=add">
+                    <a href="./?inc=add">
                         Nouveau
                     </a>
                 </li><?php if(!Auth::getInstance()->isLogged()) { ?>
                 <li>
-                    <a href="/?inc=login">
+                    <a href="./?inc=login">
                         Connexion
                     </a>
                 </li>
                 <li>
-                    <a href="/?inc=sub">
+                    <a href="./?inc=sub">
                         Inscription
                     </a>
                 </li>
                 <?php } else { ?>
                 <li>
-                    <a href="/?inc=logoff">
+                    <a href="?inc=logoff">
                         Déconnexion
                     </a>
                 </li><?php } ?>
