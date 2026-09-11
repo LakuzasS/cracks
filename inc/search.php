@@ -116,7 +116,7 @@
         <p>
             <label>
                 Par ID :
-                <input name="cid" type="number" min="0" step="1" value="<?php echo $cid; ?>" />
+                <input name="cid" type="number" min="0" step="1" value="<?php echo htmlspecialchars($cid, ENT_QUOTES, 'UTF-8') ; ?>" />
             </label>
         </p>
         <p>
@@ -125,9 +125,9 @@
                 <select name="uid">
                     <option value="">-</option>
                     <?php foreach($usersList as $usr) { ?>
-                    <option value="<?php echo $usr['id']; ?>"<?php
+                    <option value="<?php echo htmlspecialchars($usr['id'], ENT_QUOTES, 'UTF-8') ; ?>"<?php
                         if($usr['id'] == $uid) { echo ' selected="selected"'; } ?>>
-                        <?php echo $usr['login']; ?>
+                        <?php echo htmlspecialchars($usr['login'], ENT_QUOTES, 'UTF-8'); ?>
                     </option>
                     <?php } ?>
                 </select>
@@ -136,7 +136,7 @@
         <p>
             <label>
                 Par contenu :
-                <input name="content" type="search" value="<?php echo $content; ?>" />
+                <input name="content" type="search" value="<?php echo $content ; ?>" />
             </label>
         </p>
         <input type="submit" value="Rechercher !" />

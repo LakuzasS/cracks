@@ -16,7 +16,7 @@ $db = new PDO($dbConfig['dsn'], 'root', '', [
 
 function displayCrack($crack) {
     $voteable = !empty($_SESSION['userid']);
-    echo '<div class="crack voteable" data-cid="'.$crack['id'].'">';
+    echo '<div class="crack voteable" data-cid="' . htmlspecialchars($crack['id'], ENT_QUOTES, 'UTF-8') . '">';
     if($voteable) {
         echo '<div class="votebar">'
                 . '<span class="dovote" data-val="1">👍</span>'

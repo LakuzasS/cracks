@@ -19,7 +19,7 @@
                       required="required"></textarea>
             <input type="hidden"
                    name="owner"
-                   value="<?php echo $_SESSION['userid']; ?>" />
+                   value="<?php echo htmlspecialchars($_SESSION['userid'] , ENT_QUOTES, 'UTF-8'); ?>" />
             <input type="submit" name="val" value="Ajouter ce crack" />
         </p>
     </div>
