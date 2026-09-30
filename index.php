@@ -46,8 +46,10 @@
         </header>
         <main>
             <?php
-                if(!empty($_REQUEST['inc'])) {
-                    include './inc/'.$_REQUEST['inc'].'.php';
+                $pages_autorisees = ['login', 'sub', 'logoff', 'add', 'search'];
+    
+                if(!empty($_REQUEST['inc']) && in_array($_REQUEST['inc'], $pages_autorisees)) {
+                include './inc/'.$_REQUEST['inc'].'.php';
                 } else {
                     include './inc/last.php';
                 }
