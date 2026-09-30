@@ -1,4 +1,5 @@
 <?php
+    session_start();
     ob_start();
     require_once '../config.php';
     
@@ -41,7 +42,7 @@
             } else if('POST' === strtoupper($_SERVER['REQUEST_METHOD'])) {
                 $rawData = file_get_contents('php://input');
                 $decoded = json_decode($rawData);
-                doVote($decoded->cid, $decoded->uid, $decoded->val);
+                doVote($decoded->cid, $_SESSION['userid'], $decoded->val);
                 $result['ok'] = 'ok';
             } else {
                 $result['errors'][] = 'Invalid method';

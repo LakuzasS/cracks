@@ -10,7 +10,7 @@ function loadVoteBar(cid, uid) {
 }
 
 function getVotes(cid, uid) {
-    fetch('/api/vote.php?cid='+cid+'&uid='+uid).then((r) => r.json()).then((r) => {
+    fetch('./api/vote.php?cid='+cid+'&uid='+uid).then((r) => r.json()).then((r) => {
         document.querySelector('div.voteable[data-cid="'+cid+'"] .votes').innerText = r.val?? '?';
         if(r.voted) { // already voted ! remove buttons
             document.querySelectorAll('div.voteable[data-cid="'+cid+'"] .dovote').forEach(e => e.remove());
@@ -19,7 +19,7 @@ function getVotes(cid, uid) {
 }
 
 function vote(cid, uid, val) {
-    fetch('/api/vote.php', {
+    fetch('./api/vote.php', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
