@@ -8,10 +8,21 @@ require_once './Auth.php';
 require_once './Markdown.php';
 
 $dbConfig = json_decode(trim(file_get_contents('./db.json')), true);
+$databasePath = __DIR__.'/database/cracks.db';
+
+if(!is_dir(dirname($databasePath))) {
+    mkdir(dirname($databasePath), 0775, true);
+}
+
+$databaseExists = file_exists($databasePath);
 
 $db = new PDO($dbConfig['dsn'], 'root', '', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 ]);
+
+if(!$databaseExists) {
+    $db->exec(file_get_contents(__DIR__.'/init.sql'));
+}
 
 
 function displayCrack($crack) {

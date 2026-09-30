@@ -38,7 +38,7 @@
                 </li>
                 <?php } else { ?>
                 <li>
-                    <a href="?inc=logoff">
+                    <a href="./?inc=logoff">
                         Déconnexion
                     </a>
                 </li><?php } ?>

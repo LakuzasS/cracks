@@ -52,9 +52,11 @@
         $q = 'select c.*, u.login '
                 . ' from cracks c '
                 . ' left join users u on u.id=c.owner '
-                . " where c.content like '$content'";
+            . ' where c.content like :content';
         $found = [];
-        $ls = $db->query($q, PDO::FETCH_ASSOC);
+        $stmt = $db->prepare($q);
+        $stmt->execute(['content' => $content]);
+        $ls = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(!empty($ls)) {
             foreach($ls as $l) { $found[] = $l; }
         }
