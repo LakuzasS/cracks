@@ -16,7 +16,7 @@ if(!is_dir(dirname($databasePath))) {
 
 $databaseExists = file_exists($databasePath);
 
-$db = new PDO($dbConfig['dsn'], 'root', '', [
+$db = new PDO($dbConfig['dsn'], null, null, [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 ]);
 
@@ -27,7 +27,7 @@ if(!$databaseExists) {
 
 function displayCrack($crack) {
     $voteable = !empty($_SESSION['userid']);
-    echo '<div class="crack voteable" data-cid="' . htmlspecialchars($crack['id'], ENT_QUOTES, 'UTF-8') . '">';
+    echo '<div class="crack voteable" data-cid="'.$crack['id'].'">';
     if($voteable) {
         echo '<div class="votebar">'
                 . '<span class="dovote" data-val="1">👍</span>'
