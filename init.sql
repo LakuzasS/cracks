@@ -1,23 +1,22 @@
-
-create table users(
-id integer not null primary key autoincrement,
-login varchar(200) not null unique,
-pwd varchar(200) not null,
-isadmin boolean not null default 0
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    login VARCHAR(200) NOT NULL UNIQUE,
+    pwd VARCHAR(200) NOT NULL,
+    isadmin BOOLEAN NOT NULL DEFAULT 0
 );
 
-create table cracks(
-id integer not null primary key autoincrement,
-content text not null,
-owner int not null,
-datesend int not null
+CREATE TABLE cracks (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    content TEXT NOT NULL,
+    owner INT NOT NULL,
+    datesend INT NOT NULL
 );
 
-create table votes(
-crack integer not null,
-voter integer not null,
-val integer not null
+CREATE TABLE votes (
+    crack INT NOT NULL,
+    voter INT NOT NULL,
+    val INT NOT NULL
 );
 
-insert into users (login, pwd, isadmin)
-values('admin', '21232f297a57a5a743894a0e4a801fc3', 1);
+INSERT INTO users (login, pwd, isadmin)
+VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3', 1);
